@@ -5,6 +5,7 @@ import {
 import './App.css';
 import Communities from "./pages/community/Communities";
 import Community from "./pages/community/Community";
+import Questions from "./pages/community/Questions";
 import Error from "./pages/Error";
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/community/:communityID",
-    element: <Community />
+    element: <Community />,
+  },
+  {
+    path: "community/:communityID/questions",
+    element: <Questions />
   },
   {
     path: "/profile/:userID",
