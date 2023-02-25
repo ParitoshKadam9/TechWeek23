@@ -19,7 +19,9 @@ class allQuestions(Resource):
                 'value' : q.value,
                 'likes' : q.likes, 
                 'created' : q.created, 
-                'title' : q.title
+                'title' : q.title,
+                'uid' : q.uid,
+                'cid' : q.cid
             }
             output.append(qObj) 
             
