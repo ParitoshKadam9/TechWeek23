@@ -4,13 +4,16 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Communities from "./pages/community/Communities";
+import Community from "./pages/community/Community";
+import Error from "./pages/Error";
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Login />
+    element: <Login />,
+    errorElement: <Error />
   },
   {
     path: "/home",
@@ -19,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/communities",
     element: <Communities />
+  },
+  {
+    path: "/community/:communityID",
+    element: <Community />
   }
 ]);
 

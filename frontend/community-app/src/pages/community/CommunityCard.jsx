@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 export default function CommunityCard(props) {
   return (
     <Card sx={{ maxWidth: 345,margin:'1rem' }}>
-        <Link to={`./${props.id}`}>
+        <Link to={`../community/${props.id}`}>
       <CardMedia
         sx={{ height: 140 }}
         image={props.image}
