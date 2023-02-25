@@ -8,12 +8,18 @@ import Community from "./pages/community/Community";
 import Error from "./pages/Error";
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
+import Profile from "./pages/profile/Profile";
+import Signup from "./pages/signup/Signup";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
     errorElement: <Error />
+  },
+  {
+    path: "/signup",
+    element: <Signup />
   },
   {
     path: "/home",
@@ -26,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/community/:communityID",
     element: <Community />
+  },
+  {
+    path: "/profile/:userID",
+    element: <Profile />
   }
 ]);
 
