@@ -8,12 +8,17 @@ import Community from "./pages/community/Community";
 import Error from "./pages/Error";
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
+import Signup from "./pages/signup/Signup";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
     errorElement: <Error />
+  },
+  {
+    path: "/signup",
+    element: <Signup />
   },
   {
     path: "/home",
