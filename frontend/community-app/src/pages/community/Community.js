@@ -1,4 +1,5 @@
-import { useParams, useSearchParams } from "react-router-dom"
+import { Button } from "@mui/material";
+import { useParams } from "react-router-dom"
 
 export default function Community() {
     const {communityID} = useParams();
@@ -6,6 +7,9 @@ export default function Community() {
         <>
             This is community {communityID}
             <h1>{communityID}</h1>
+            <Button variant="contained" href={`./${communityID}/questions`}>
+                Ask Questions
+            </Button>
         </>
     )
 }
