@@ -12,6 +12,8 @@ class User(db.Model):
     karma = db.Column(db.Integer(), default = 0)
     created = db.Column(db.DateTime(timezone = True), default = datetime.datetime.now)
     
-    # answer = db.relationship('Answer', backref = 'user', lazy = True)
-    # question = db.relationship('Question', backref = 'user', lazy = True)
+    # child relations
+    answer = db.relationship('Answer', backref = 'user', lazy = True)
+    question = db.relationship('Question', backref = 'user', lazy = True)
     # commpost = db.relationship('Commpost', backref = 'user', lazy = True)
+    # category = db.relationship('Cateory', backref = 'user', lazy = True)
