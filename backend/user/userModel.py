@@ -15,5 +15,5 @@ class User(db.Model):
     # child relations
     answer = db.relationship('Answer', backref = 'user', lazy = True)
     question = db.relationship('Question', backref = 'user', lazy = True)
-    commpost = db.relationship('Commpost', backref = 'user', lazy = True)
+    # commpost = db.relationship('Commpost', backref = 'user', lazy = True)
     category = db.relationship('Category', backref = 'user', lazy = True)
