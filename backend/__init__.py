@@ -21,6 +21,12 @@ db = SQLAlchemy(app)
 
 #importing api routes
 from backend.user import userRoutes
+from backend.answer import answerRoutes
+from backend.question import questionRoutes
+from backend.category import categoryRoutes
 
 #importing models 
 from backend.user.userModel import User
+from backend.answer.answerModel import Answer
+from backend.question.questionModel import Question
+from backend.category.categoryModel import Category

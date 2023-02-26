@@ -19,7 +19,9 @@ class allQuestions(Resource):
                 'value' : q.value,
                 'likes' : q.likes, 
                 'created' : q.created, 
-                'title' : q.title
+                'title' : q.title,
+                'uid' : q.uid,
+                'cid' : q.cid
             }
             output.append(qObj) 
             
@@ -104,11 +106,6 @@ class singleQuestion(Resource):
         Returns qObj for the question with id = qid
         Returns > 300 status if doesn't exist
         """ 
-        #TODO: make login required 
-
-        # u_name = request.headers.get('u_name')
-        # pwd = request.headers.get('pwd')
-        
         q = Question.query.filter_by(id = qid).first()
         
         if not q: 
@@ -151,12 +148,11 @@ class singleQuestion(Resource):
         Returns 200 ok if fine 
             301 if question not found 
             302 if data given incorrect/unfilled
-        Reqires 'title', 'value', 'likes' to be passed
-        (if field is empty)
         """
+        # TODO : make login required
         data = request.get_json()
         
-        question = Question.query.fiter((Question.id == qid)).first() 
+        question = Question.query.filter((Question.id == qid)).first() 
         if not question: 
             return make_response(jsonify({'error' : 'Question does not exit'}), 301)
         try: 
@@ -172,6 +168,7 @@ class singleQuestion(Resource):
         except TypeError: 
             pass 
         
+        db.session.commit() 
         return 200 
 
 

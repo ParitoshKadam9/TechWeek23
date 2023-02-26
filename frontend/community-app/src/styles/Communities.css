@@ -1,0 +1,11 @@
+.communities-div {
+    background-color: #eee;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.community-card {
+    padding: 1rem;
+    margin: 1rem;
+}
