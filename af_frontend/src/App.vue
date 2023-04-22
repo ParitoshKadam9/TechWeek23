@@ -3,19 +3,20 @@
     <div class="header">Ni69ers</div>
   </div>
 <!-- <LandingPage/> -->
-<CommunitiesBox/>
-<CommunitiesBox/>
+<!-- <CommunitiesBox/>
+<CommunitiesBox/> -->
+<router-view/>
 </template>
     
 <script>
 let x = document.cookies
 console.log(x) 
-import CommunitiesBox from './components/CommunitiesBox.vue';
+//import CommunitiesBox from './components/CommunitiesBox.vue';
 // import LandingPage from './components/LandingPage.vue';
 export default {
   components: {
     // LandingPage
-    CommunitiesBox
+   // CommunitiesBox
   }
 }
    
@@ -42,6 +43,7 @@ body{
   padding: 0;
   overflow-x: hidden;
   overflow-y: auto;
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -63,24 +65,4 @@ body{
   background: #555; 
 }
 
-.login input {
-  width: 300px;
-  height: 40px;
-  display: block;
-  padding-left: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 30px;
-  margin-top: 20px;
-  border: 1px solid steelblue;
-}
-
-.login button {
-  width: 320px;
-  height: 40px;
-  background: steelblue;
-  border-color: 1px solid steelblue;
-  color: white;
-  cursor: pointer;
-}
 </style>
