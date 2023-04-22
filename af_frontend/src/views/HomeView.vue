@@ -1,27 +1,28 @@
 <template>
-      <div class="Sidebar">
-  
-      </div>
-      <div class="Home">
+    <div class="Sidebar">
+
+    </div>
+    <div class="Home">
         <div class="Search">
-          <input :class="!up? 'searchBar' : 'searchBarUp'" placeholder="Search Communities" v-model="search" @change="ChangeSearch(search)"/>
+            <input :class="!up ? 'searchBar' : 'searchBarUp'" placeholder="Search Communities" v-model="search"
+                @change="ChangeSearch(search)" />
         </div>
         <div class="CreateCommunity">
             <div class="button">+ Create Community</div>
-        </div> 
+        </div>
         <div class="BasicStats">
             <div class="line">#8199 Communities around the world</div>
-        </div> 
-      </div>
-      <div class="profile"></div>
+        </div>
+    </div>
+    <div class="profile"></div>
 </template>
 <script>
 export default {
-    name: "LandingPage",
+    name: "HomeView",
     data() {
         return {
             search: "",
-            up : false
+            up: false
         }
     },
     methods: {
@@ -33,7 +34,7 @@ export default {
             }
             else {
                 console.log('909')
-                this.up =true
+                this.up = true
             }
         }
     }
@@ -42,10 +43,10 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.button{
+.button {
     min-width: 20vh;
     cursor: pointer;
-    padding: 1.5vh ;
+    padding: 1.5vh;
     color: white;
     font-size: 2.5vh;
     margin-top: 5vh;
@@ -59,63 +60,69 @@ export default {
     background: rgb(176, 176, 31);
     transition: 0.1s ease-in;
 }
-.button:hover{
+
+.button:hover {
     background: rgba(188, 188, 8, 0.442);
 }
-.line{
+
+.line {
     font-size: 6vh;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-    ;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: white;
     margin-top: 15vh;
 }
-.Home{
-  margin: 0;
-  padding: 0;
-  width: 70vw;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgb(36, 36, 36);
-  /* justify-content: center; */
+
+.Home {
+    margin: 0;
+    padding: 0;
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(36, 36, 36);
+    /* justify-content: center; */
 }
-.searchBar{
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: rgb(36, 36, 36);
-  color: gray;
-  height: 5vh;
-  width: 50vh;
-  padding: 10px;
-  font-size: 2.6vh;
-  margin-top: 10vh;
-  transition: 0.2s;
+
+.searchBar {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(36, 36, 36);
+    color: gray;
+    height: 5vh;
+    width: 50vh;
+    padding: 10px;
+    font-size: 2.6vh;
+    margin-top: 10vh;
+    transition: 0.2s;
 }
-.searchBarUp{
-  border: 1px solid gray;
-  border-radius: 5px;
-  background-color: rgb(34, 34, 34);
-  color: gray;
-  height: 5vh;
-  width: 50vh;
-  padding: 10px;
-  font-size: 2.6vh;
-  margin-top: 10vh;
-  transition: 0.2s;
+
+.searchBarUp {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: rgb(34, 34, 34);
+    color: gray;
+    height: 5vh;
+    width: 50vh;
+    padding: 10px;
+    font-size: 2.6vh;
+    margin-top: 10vh;
+    transition: 0.2s;
 }
+
 @keyframes GoUp {
-    0%{
+    0% {
         margin-top: 0vh;
     }
-    100%{
+
+    100% {
         margin-top: 5vh;
     }
 
 }
+
 :-moz-placeholder {
-  text-align: center;
-}
-</style>
+    text-align: center;
+}</style>

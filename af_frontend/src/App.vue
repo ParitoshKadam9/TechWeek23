@@ -2,21 +2,16 @@
   <div class="Headers">
     <div class="header">Ni69ers</div>
   </div>
-<!-- <LandingPage/> -->
-<!-- <CommunitiesBox/>
-<CommunitiesBox/> -->
+  
 <router-view/>
 </template>
     
 <script>
 let x = document.cookies
-console.log(x) 
-//import CommunitiesBox from './components/CommunitiesBox.vue';
-// import LandingPage from './components/LandingPage.vue';
+console.log(x)
 export default {
   components: {
-    // LandingPage
-   // CommunitiesBox
+
   }
 }
    
