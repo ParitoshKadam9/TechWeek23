@@ -9,7 +9,6 @@ class Category(db.Model):
 
     #parent 
     uid = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False) 
-    
-    #child
-    # commpost = db.relationship('Commpost', backref = 'category', lazy = True) 
- 
+
+    #child 
+    question = db.relationship('Question', backref = 'question', lazy = True)
