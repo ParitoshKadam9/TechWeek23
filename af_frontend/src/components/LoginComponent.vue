@@ -1,9 +1,10 @@
 <template>
   <div class="login">
-    <h1>Login</h1>
+    <div class="text">Login</div>
     <input type="email" placeholder="Enter Email" v-model="email" />
     <input type="password" placeholder="Enter Password" v-model="password" />
-    <button @click="login">Submit</button>
+    <div><button @click="login">Submit</button></div>
+  
     <p>
       <router-link to="signup" class="tag">New User? Sign Up </router-link>
     </p>
@@ -29,6 +30,13 @@ export default {
 </script>
 
 <style>
+.login{
+  color: white;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .login input {
   width: 300px;
   height: 40px;
@@ -40,10 +48,14 @@ export default {
   margin-top: 20px;
   border: 1px solid steelblue;
 }
-
+.login p{
+  color: white;
+}
 .login button {
   width: 320px;
   height: 40px;
+  margin-left: auto;
+  margin-right: auto;
   background: steelblue;
   border-color: 1px solid steelblue;
   color: white;

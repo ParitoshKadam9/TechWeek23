@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <h1>SignUp</h1>
+    <div>SignUp</div>
     <input type="text" placeholder="Enter BITSID" v-model="bits_id" required />
     <input
       type="text"
@@ -20,7 +20,9 @@
       v-model="full_name"
       required
     />
+    <div>
     <button @click="Signup">Sign Up</button>
+    </div>
   </div>
 </template>
 
@@ -69,5 +71,13 @@ export default {
 
 .signup h1 {
   margin-top: 150px;
+}
+
+.signup{
+  color: white;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
