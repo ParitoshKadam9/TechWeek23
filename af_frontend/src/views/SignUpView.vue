@@ -20,13 +20,20 @@
       v-model="full_name"
       required
     />
-    <div>
-    <button @click="Signup">Sign Up</button>
+      <input
+        type="email"
+        placeholder="Enter Email"
+        v-model="email"
+        required
+      />
+      <div>
+      <button @click="Signup">Sign Up</button>
+      </div>
     </div>
-  </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "SignUpView",
   data() {
@@ -35,13 +42,23 @@ export default {
       username: "",
       password: "",
       full_name: "",
-      karma: 0,
+      email: "",
     };
   },
   methods: {
+    ...mapActions({
+      SignUpUser: 'SignUpUser'
+    }),
+
     Signup() {
-      console.log(this.bits_id);
-      this.$router.push({name : 'HomeComponent'})
+      this.SignUpUser({
+        'bits_id': this.bits_id,
+        'u_name': this.username,
+        'pwd': this.password,
+        'full_name': this.full_name,
+        'email': this.email
+      })
+      this.$router.push({ name: 'HomeView' })
     },
   },
 };

@@ -1,31 +1,41 @@
 <template>
   <div class="login">
-    <div class="text">Login</div>
-    <input type="email" placeholder="Enter Email" v-model="email" />
-    <input type="password" placeholder="Enter Password" v-model="password" />
-    <div><button @click="login">Submit</button></div>
+          <div class="text">Login</div>
+                <input placeholder="Enter Username" v-model="u_name" />
+                <input type="password" placeholder="Enter Password" v-model="pwd" />
+                <div><button @click="login">Submit</button></div>
   
-    <p>
-      <router-link to="signup" class="tag">New User? Sign Up </router-link>
-    </p>
-  </div>
+                <p>
+                  <router-link to="signup" class="tag">New User? Sign Up </router-link>
+                </p>
+              </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: "LoginView",
   data() {
     return {
-      email: "",
-      password: "",
+      u_name: "",
+      pwd: "",
     };
   },
   methods: {
+    ...mapActions({
+      GetUsers: 'GetUsers',
+      LogInUser: 'LogInUser'
+    }),
+
     login() {
-      console.log(this.email);
-      this.$router.push({name : 'HomeComponent'})
+      this.LogInUser({ 'u_name': this.u_name, 'pwd': this.pwd })
+      this.$router.push({ name: 'HomeView' })
     },
   },
+  mounted() {
+    this.GetUsers();
+  }
 };
 </script>
 

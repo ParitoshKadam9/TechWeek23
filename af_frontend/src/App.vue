@@ -4,14 +4,16 @@
   </div>
   
 <router-view/>
+  <error-bar></error-bar>
 </template>
     
 <script>
+import ErrorBar from '@/components/ErrorBar.vue'
 let x = document.cookies
 console.log(x)
 export default {
   components: {
-
+    ErrorBar,
   }
 }
    
