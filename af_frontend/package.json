@@ -22,17 +22,5 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "prettier": "^2.4.1"
-  },
-  "description": "## Project setup ``` npm install ```",
-  "main": ".eslintrc.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sarvesh-sutaone/after_hours_frontend.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sarvesh-sutaone/after_hours_frontend/issues"
-  },
-  "homepage": "https://github.com/sarvesh-sutaone/after_hours_frontend#readme"
+  }
 }
