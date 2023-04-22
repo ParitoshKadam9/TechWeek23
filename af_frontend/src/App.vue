@@ -2,17 +2,19 @@
   <div class="Headers">
     <div class="header">Ni69ers</div>
   </div>
-  
+  <!-- <CommunitiesBox/> -->
 <router-view/>
 </template>
     
 <script>
+// import CommunitiesBox from './components/CommunitiesBox.vue';
+
 let x = document.cookies
 console.log(x)
 export default {
   components: {
-
-  }
+    // CommunitiesBox
+}
 }
    
 </script>
