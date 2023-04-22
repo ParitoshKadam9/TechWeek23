@@ -2,7 +2,7 @@
   <div class="Headers">
     <div class="header">Ni69ers</div>
   </div>
-  
+  <!-- <CommunitiesBox/> -->
 <router-view/>
   <error-bar></error-bar>
 </template>

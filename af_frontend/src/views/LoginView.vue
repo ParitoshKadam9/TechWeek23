@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .login{
   color: white;
   margin-top: 100px;

@@ -3,6 +3,9 @@ import LoginView from "../views/LoginView.vue";
 import HomeView from "../views/HomeView.vue";
 import SignUpView from "../views/SignUpView.vue";
 import ProfileView from "../views/ProfileView.vue"
+import CommunityView from "../views/CommunityView"
+import QuestionView from "../views/QuestionView"
+
 const routes = [
   {
     name: "LoginView",
@@ -23,7 +26,17 @@ const routes = [
     name: "ProfileView",
     component: ProfileView,
     path: '/profile'
-  }
+  },
+  {
+    name: "CommunityView",
+    component: CommunityView,
+    path: '/community'
+  },
+  {
+    name: "QuestionView",
+    component: QuestionView,
+    path: '/question'
+  },
 ];
 
 const router = createRouter({
