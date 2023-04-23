@@ -1,7 +1,9 @@
 <template>
+    
     <div class="Sidebar">
 
     </div>
+
     <div class="Home">
         <div class="Search">
             <input :class="!up ? 'searchBar' : 'searchBarUp'" placeholder="Search Communities" v-model="search"
@@ -11,21 +13,39 @@
             <div class="button">+ Create Community</div>
         </div>
         <div class="BasicStats">
-            <div class="line">#8199 Communities around the world</div>
+                <div class="line">
+                    #{{ this.$store.state.community.communities.length }} Communities around the world
+                </div>
+
+            </div>
         </div>
-    </div>
-    <div class="profile"></div>
+        <div v-for="community in this.$store.state.community.communities" v-bind:key="community.id">
+            {{ community.title }}
+            {{ community.description }}
+        </div>
+        <div class="profile" v-if="this.$store.state.isLoggedIn">
+            {{ this.$store.state.user.u_name }}
+            {{ this.$store.state.user.full_name }}
+            {{ this.$store.state.user.bits_id }}
+        </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
     name: "HomeView",
     data() {
         return {
             search: "",
-            up: false
+            up: false,
         }
     },
     methods: {
+        ...mapActions({
+            GetCommunities: 'GetCommunities',
+            CreateCommunity: 'CreateCommunity',
+            DeleteCommunity: 'DeleteCommunity'
+        }),
         ChangeSearch(sea) {
             console.log(sea)
             if (sea == "") {
@@ -37,6 +57,9 @@ export default {
                 this.up = true
             }
         }
+    },
+    mounted() {
+        this.GetCommunities();
     }
 }
 </script>

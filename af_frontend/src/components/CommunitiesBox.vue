@@ -1,10 +1,10 @@
 <template>
     <div class="CommBox">
         <div class="left">
-            <div class="CommName">{{communityName}}</div>
-        </div>
-        <div class="right">
-            <div class="CommID">#{{ communityID }}</div>
+                <div class="CommName">{{ title }}</div>
+            </div>
+            <div class="right">
+                <div class="CommID">#{{ description }}</div>
         </div>
     </div>
 </template>
@@ -13,8 +13,8 @@ export default {
     name: "CommuntiesBox",
     data() {
         return {
-            communityName: "CS F407",
-            communityID: "4199"
+            title: "CS F407",
+            description: "4199"
             }
         }
     }
