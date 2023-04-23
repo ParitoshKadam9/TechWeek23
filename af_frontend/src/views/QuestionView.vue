@@ -11,12 +11,13 @@
                 <div class="date">{{ date }}</div>
             </div>
     </div>
+
     <div class="Answers">
         <div class="ansHead">
             <div class="leftans">Answers :</div>
             <div class="rightans">+ Answer</div>
         </div>
-        <AddAnswer/>
+            <!-- <AddAnswer/> -->
         <div class="ansList">
             <AnswerBox/>
             <AnswerBox/>
@@ -26,7 +27,7 @@
     </div>
 </template>
 <script>
-import AddAnswer from '@/components/AddAnswer.vue';
+// import AddAnswer from '@/components/AddAnswer.vue';
 import AnswerBox from '../components/AnswerBox.vue';
 
 export default{
@@ -39,7 +40,7 @@ export default{
             userName: "Paritosh Kadam"
         };
     },
-    components: { AnswerBox, AddAnswer }
+    components: { AnswerBox }
 }
 </script>
 <style scoped>

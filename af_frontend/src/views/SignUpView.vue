@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <div>SignUp</div>
+    <div class="SignupText">SignUp</div>
     <input type="text" placeholder="Enter BITSID" v-model="bits_id" required />
     <input
       type="text"
@@ -65,8 +65,12 @@ export default {
 </script>
 
 <style>
+.SignupText{
+    color: black;
+  font-size: 4vh;
+}
 .signup input {
-  width: 300px;
+  width: 40VH;
   height: 40px;
   display: block;
   padding-left: 20px;
@@ -74,15 +78,23 @@ export default {
   margin-right: auto;
   margin-bottom: 30px;
   margin-top: 20px;
-  border: 1px solid steelblue;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  background: #393939;
+  font-size: 2.2vh;
+  color: white;
 }
 
 .signup button {
-  width: 320px;
+  width:20vh;
   height: 40px;
-  background: steelblue;
-  border-color: 1px solid steelblue;
-  color: white;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background:inherit;
+  border: 1px solid rgb(0, 0, 0);
+  color: black;
+  font-size: 2.3vh;
   cursor: pointer;
 }
 
@@ -92,9 +104,16 @@ export default {
 
 .signup{
   color: white;
-  margin-top: 100px;
+  margin-top: 8vh;
   display: flex;
+  width: 70vh;
   flex-direction: column;
   align-items: center;
+  background: rgb(176, 176, 31);
+  padding: 3vh;
+  padding-top: 7vh;
+  border-radius:10px ;
+  margin-left: auto;
+  margin-RIGHT: auto;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-          <div class="text">Login</div>
+          <div class="loginText">Login</div>
                 <input placeholder="Enter Username" v-model="u_name" />
                 <input type="password" placeholder="Enter Password" v-model="pwd" />
                 <div><button @click="login">Submit</button></div>
@@ -42,13 +42,24 @@ export default {
 <style scoped>
 .login{
   color: white;
-  margin-top: 100px;
+  margin-top: 20vh;
   display: flex;
+  width: 70vh;
   flex-direction: column;
   align-items: center;
+  background: rgb(176, 176, 31);
+  padding: 3vh;
+  padding-top: 7vh;
+  border-radius:10px ;
+  margin-left: auto;
+  margin-RIGHT: auto;
+}
+.loginText{
+  color: black;
+  font-size: 4vh;
 }
 .login input {
-  width: 300px;
+  width: 40VH;
   height: 40px;
   display: block;
   padding-left: 20px;
@@ -56,19 +67,25 @@ export default {
   margin-right: auto;
   margin-bottom: 30px;
   margin-top: 20px;
-  border: 1px solid steelblue;
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  background: #393939;
+  font-size: 2.2vh;
+  color: white;
 }
 .login p{
   color: white;
 }
 .login button {
-  width: 320px;
+  width:20vh;
   height: 40px;
+  border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  background: steelblue;
-  border-color: 1px solid steelblue;
-  color: white;
+  background:inherit;
+  border: 1px solid rgb(0, 0, 0);
+  color: black;
+  font-size: 2.3vh;
   cursor: pointer;
 }
 
