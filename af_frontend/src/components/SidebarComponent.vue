@@ -1,20 +1,21 @@
 <template>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
-    <div class="wrapper" v-if="this.$store.state.isLoggedIn">
-        <input type="checkbox" id="btn" hidden>
-        <label for="btn" class="menu-btn">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-times"></i>
-        </label>
-        <nav id="sidebar">
-            <div class="title">Side Menu</div>
-            <ul class="list-items">
-                <li><router-link to="/">Home</router-link></li>
-                <li><router-link to="/profile">Profile</router-link></li>
-                <li><router-link to="/login" @click="logout">LogOut</router-link></li>
-            </ul>
-        </nav>
-    </div>
+        <div class="wrapper" >
+            <input type="checkbox" id="btn" hidden>
+            <label for="btn" class="menu-btn">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-times"></i>
+            </label>
+            <nav id="sidebar">
+                <div class="title">Side Menu</div>
+                <ul class="list-items">
+                    <li><router-link to="/">Home</router-link></li>
+                    <li><router-link to="/profile">Profile</router-link></li>
+                            <li ><router-link to="/login" @click="logout" v-if="!this.$store.state.isLoggedIn">Log In</router-link></li>
+                            <li ><router-link to="/login" @click="logout" v-if="this.$store.state.isLoggedIn">LogOut</router-link></li>
+                        </ul>
+                    </nav>
+                </div>
 </template>
 
 <script>
@@ -36,7 +37,7 @@ export default {
         logout() {
             this.$store.state.isLoggedIn = false
         }
-    }
+    },
 }
 </script>
 
