@@ -19,7 +19,9 @@ class allAnswers(Resource):
                 'id' : a.id, 
                 'value' : a.value, 
                 'likes' : a.likes, 
-                'created' : a.created
+                'created' : a.created, 
+                'uid' : a.uid, 
+                'qid' : a.qid
             }
             output.append(aObj) 
 

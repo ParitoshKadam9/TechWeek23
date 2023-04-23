@@ -1,46 +1,49 @@
 <template>
     <div class="head">
         <div class="left">
-            <div class="askedBy"><div class="ask">Asked By </div>: <div class="name"> {{ userName }}</div></div>
-            <div class="question">
-                {{ question }}
-            </div>
-        </div>
-            <div class="right">
-                <div class="questionID">#{{ questionID }}</div>
-                <div class="date">{{ date }}</div>
-            </div>
-    </div>
+                                                <div class="askedBy"><div class="ask">Asked By </div>: <div class="name"> {{ this.$store.state.user.u_name }}</div></div>
+                                                <div class="question">
+                                                    {{ this.$store.state.question.value }}
+                                                </div>
+                                            </div>
+                                                <div class="right">
+                                                    <div class="questionID">#{{ this.$store.state.question.qid }}</div>
+                                                    <div class="date">{{ this.$store.state.question.created }}</div>
+                                                </div>
+                                        </div>
 
-    <div class="Answers">
-        <div class="ansHead">
-            <div class="leftans">Answers :</div>
-            <div class="rightans">+ Answer</div>
-        </div>
-            <!-- <AddAnswer/> -->
-        <div class="ansList">
-            <AnswerBox/>
-            <AnswerBox/>
-            <AnswerBox/>
-            <AnswerBox/>
-        </div>
-    </div>
+                                        <div class="Answers">
+                                            <div class="ansHead">
+                                                <div class="leftans">Answers :</div>
+                                                <div class="rightans" @click="this.addans = !this.addans">+ Answer</div>
+                                            </div>
+                                            <div v-if="addans">
+                                                <AddAnswer :qid="this.$store.state.question.qid"/>
+                                            </div>
+                                                        <div class="ansList" v-for="answer in this.$store.state.answer.answers" :key="answer.id">                                      
+                                                            <AnswerBox :username="this.$store.getters.getUserById(answer.uid).u_name" :likes="answer.likes" :answer="answer.value"/>
+                            </div>
+                        </div>
 </template>
 <script>
-// import AddAnswer from '@/components/AddAnswer.vue';
+import AddAnswer from '@/components/AddAnswer.vue';
+import { mapActions } from 'vuex';
 import AnswerBox from '../components/AnswerBox.vue';
 
-export default{
+export default {
     name: "QuestionView",
+    components: { AnswerBox, AddAnswer },
     data() {
         return {
-            question: "If I have 3 apples and I give 2 to my friend ho much do i have. If I have 3 apples and I give 2 to my friend ho much do i have. If I have 3 apples and I give 2 to my friend ho much do i have",
-            questionID: "7662",
-            date: "26/11/08",
-            userName: "Paritosh Kadam"
+            addans: false
         };
     },
-    components: { AnswerBox }
+    methods: {
+        ...mapActions({ GetAnswers: 'GetAnswers' })
+    },
+    mounted() {
+        this.GetAnswers()
+    }
 }
 </script>
 <style scoped>

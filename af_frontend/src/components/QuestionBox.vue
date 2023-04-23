@@ -11,27 +11,30 @@
         <div class="right">
 
             <div class="QuestionID">
-                #{{ questionID }}
-            </div>
-            <div class="date">
-                {{ date }}
-            </div>
-            <div class="likes">
-                LikeIcon : {{ likes }} likes
-            </div>
-        </div>
-    </div>
+                            #{{ qid }}
+                        </div>
+                        <div class="date">
+                            {{ date }}
+                        </div>
+                        <div class="likes">
+                            LikeIcon : {{ likes }} likes
+                        </div>
+                    </div>
+                </div>
 </template>
 <script>
 export default {
 
     name: "QuestionBox",
+    props: {
+        question: String,
+        date: String,
+        likes: Number,
+        qid: Number,
+    },
     data() {
         return {
-            question : "If I have 3 apples and I give 2 to my friend ho much do i have",
-            date: "27/02/23",
-            likes:"99",
-            questionID: "4199"
+
         }
     }
 }

@@ -1,4 +1,5 @@
 <template>
+    <SidebarComponent/>
   <div class="Headers">
     <div class="header">Ni69ers</div>
   </div>
@@ -9,11 +10,13 @@
     
 <script>
 import ErrorBar from '@/components/ErrorBar.vue'
+import SidebarComponent from './components/SidebarComponent.vue'
 let x = document.cookies
 console.log(x)
 export default {
   components: {
     ErrorBar,
+    SidebarComponent
   }
 }
    

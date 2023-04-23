@@ -14,13 +14,11 @@
 <script>
 export default {
     name: "AnswerBox",
-    data() {
-        return {
-            username: "Sarvesh Suttubhai",
-            likes: '921',
-            answer: 'Lavde agar tu padh ke aata toh aisa saval hi nahi puchta, chutiyapa karne ka bahana chahiye bass, chutfakeer kahika'
-        }
-    }
+    props: {
+        username: String,
+        likes: Number,
+        answer: String
+    },
 }
 </script>
 <style scoped>

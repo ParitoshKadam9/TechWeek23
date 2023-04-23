@@ -2,11 +2,11 @@
     <div class="boxx">
         <div class="form">
             <div class="header">Add Community</div>
-            <div class="title"><input class="communityTitle" placeholder="Community Title"/></div>
-        <div class="answer">
-                <textarea class="anserInput" placeholder="Type Answer here"></textarea>
-            </div>      
-                    <div class="Submit">
+                <div class="title"><input class="communityTitle" placeholder="Community Title" v-model="title"/></div>
+                <div class="answer">
+                        <textarea class="anserInput" placeholder="Type Answer here" v-model="description"></textarea>
+                </div>      
+                <div class="Submit" @click="handleSubmit()">
                 Submit
             </div>     
         </div>
@@ -14,11 +14,27 @@
     </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     name: "AddCommunity",
     data() {
         return {
-            
+            title: "",
+            description: ""
+        }
+    },
+    methods: {
+        ...mapActions({
+            CreateCommunity: 'CreateCommunity'
+        }),
+        handleSubmit() {
+            let formData = {
+                'uid': this.$store.state.user.uid,
+                'title': this.title,
+                'description': this.description
+            }
+            this.CreateCommunity(formData)
         }
     }
 }

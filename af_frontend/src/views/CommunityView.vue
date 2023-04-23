@@ -1,37 +1,56 @@
 <template>
     <div class="all">
         <div class="CommunityHeader">
-            <div class="name">{{ CommName }}</div>
-            <div class="id">#{{ CommID }}</div>
-        </div>
-    </div>
-    <!-- <AddCommunity/> -->
-    <div class="questions">
-        <div class="upper">
-            <div class="QuestionHeader">Questions :</div>
-            <div class="listQuestions">
-                <QuestionBox/>
-                <QuestionBox/>
-                <QuestionBox/>
-                <QuestionBox/>
-            </div>
+                                                <div class="name">{{ this.$store.state.community.title }}</div>
+                                                <div class="id">#{{ this.$store.state.community.description }}</div>
+                                            </div>
+                                        </div>
+                                        <!-- <AddCommunity/> -->
+                                        <div class="questions">
+                                            <div class="upper">
+                                                <div class="QuestionHeader">Questions :</div>
+                                                <div class="listQuestions" v-for="question in this.$store.state.question.questions" :key="question.id">
+                                                    <div v-if="question.cid == this.$store.state.community.cid">
+                                                        <RouterLink to="/question" @click="this.$store.commit('setNewViewQuestion', question.id)">
+                                                            <QuestionBox v-bind:question="question.value" v-bind:date="question.created" v-bind:likes="question.likes" :qid="question.id"/>
+                                                        </RouterLink>
+                                            
+                                                    </div>
+                                                </div>
 
-        </div>
-        
-    </div>
+                                            </div>
+                                            <div class="CreateCommunity">
+                                                    <div class="button" @click="this.addq = !this.addq">+ Ask a Question</div>
+                                                    <div v-if="addq" >
+                                                        <AddQuestion></AddQuestion> 
+                                                    </div>
+                                                </div>
+                                        </div>
 </template>
 <script>
 // import AddCommunity from "@/components/AddCommunity.vue";
+import AddQuestion from '@/components/AddQuestion.vue'
+import { mapActions } from "vuex";
 import QuestionBox from "../components/QuestionBox.vue";
 export default {
     name: "CommunityView",
+    components: {
+        AddQuestion,
+        QuestionBox
+    },
     data() {
         return {
-            CommName: "Artificial Intelligence",
-            CommID: "98282",
+            addq: false
         };
     },
-    components: { QuestionBox }
+    methods: {
+        ...mapActions({
+            GetQuestions: 'GetQuestions'
+        })
+    },
+    mounted() {
+        this.GetQuestions();
+    }
 }
 </script>
 <style scoped>
@@ -77,6 +96,23 @@ justify-content: center;
         color: Black;
         transition: 0.1s;
     }
+    .button {
+    min-width: 20vh;
+    cursor: pointer;
+    padding: 1.5vh;
+    color: white;
+    font-size: 2.5vh;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 5vh;
+    border-radius: 5px;
+    justify-content: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: rgb(176, 176, 31);
+    transition: 0.1s ease-in;
+}
     .name{
         font-size: 6vh;
     }

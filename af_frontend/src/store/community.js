@@ -40,6 +40,7 @@ const community = {
             state.description = commObj.description
             state.created = commObj.created
             state.community_uid = commObj.uid
+            console.log('Current comm:', state.title)
         }
     },
 
@@ -57,7 +58,7 @@ const community = {
 
         async CreateCommunity(context, formData) {
             let res = await axiosInstance.post('', {
-                'uid': context.state.uid,
+                'uid': formData.uid,
                 'title': formData.title,
                 'description': formData.description
             })

@@ -2,23 +2,36 @@
     <div class="boxx">
         <div class="form">
         <div class="QuestionID">
-           Question ID :  #{{ questionID }}
-        </div>
-        <div class="answer">
-            <textarea class="anserInput" placeholder="Type Answer here"></textarea>
-        </div>
-        <div class="Submit">
-            Submit
-        </div>
-        </div>
-    </div>
+                       Question ID :  #{{ qid }}
+                    </div>
+                    <div class="answer">
+                        <textarea class="anserInput" placeholder="Type Answer here" v-model="this.value"></textarea>
+                    </div>
+                    <div class="Submit" @click="handleSubmit()">
+                        Submit
+                    </div>
+                    </div>
+                </div>
 </template>
 <script scoped>
 export default {
     name: "AddAnswer",
+    props: {
+        qid: Number
+    },
     data() {
         return {
-            questionID: '8988'
+            value: ''
+        }
+    },
+    methods: {
+        handleSubmit() {
+            let formData = {
+                'value': this.value,
+                'uid': this.$store.state.user.uid,
+                'qid': this.qid
+            }
+            this.$store.dispatch('CreateAnswer', formData)
         }
     }
 }

@@ -10,34 +10,40 @@
                 @change="ChangeSearch(search)" />
         </div>
         <div class="CreateCommunity">
-            <div class="button">+ Create Community</div>
-        </div>
-        <div class="BasicStats">
-                <div class="line">
-                    #{{ this.$store.state.community.communities.length }} Communities around the world
+                <div class="button" @click="this.addcomm = !this.addcomm">+ Create Community</div>
+                <div v-if="addcomm" >
+                    <AddCommunity></AddCommunity> 
                 </div>
-
             </div>
-        </div>
-        <div v-for="community in this.$store.state.community.communities" v-bind:key="community.id">
-            {{ community.title }}
-            {{ community.description }}
-        </div>
-        <div class="profile" v-if="this.$store.state.isLoggedIn">
-            {{ this.$store.state.user.u_name }}
-            {{ this.$store.state.user.full_name }}
-            {{ this.$store.state.user.bits_id }}
-        </div>
+            <div class="BasicStats">
+                    <div class="line">
+                        #{{ this.$store.state.community.communities.length }} Communities around the world
+                    </div>
+
+                </div>
+            </div>
+            <div v-for="community in this.$store.state.community.communities" v-bind:key="community.id">
+                    <CommunitiesBox v-bind:title="community.title" :cid="community.id"></CommunitiesBox>
+                </div>
+                <div class="profile" v-if="this.$store.state.isLoggedIn">
+            </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
+import CommunitiesBox from '@/components/CommunitiesBox.vue'
+import AddCommunity from '@/components/AddCommunity.vue'
 
 export default {
     name: "HomeView",
+    components: {
+        CommunitiesBox,
+        AddCommunity
+    },
     data() {
         return {
             search: "",
             up: false,
+            addcomm: false
         }
     },
     methods: {

@@ -30,16 +30,19 @@ const user = {
         getUserById: (state) => (id) => {
             let usr;
             for (let i in state.users) {
-                if (state.users[i].id == id)
+                console.log(id)
+                if (state.users[i].id == id) {
                     usr = state.users[i]
+                    console.log('Match User: ', state.users[i])
+                }
             }
-            return usr;
+            return usr
         }
     },
 
     mutations: {
         setUser(state, payload) {
-            state.uid = payload.uid;
+            state.uid = payload.id;
             state.bits_id = payload.bits_id;
             state.created = payload.created;
             state.full_name = payload.full_name;

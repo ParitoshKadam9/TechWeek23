@@ -1,23 +1,22 @@
 <template>
-    <div class="CommBox">
-        <div class="left">
-                <div class="CommName">{{ title }}</div>
-            </div>
-            <div class="right">
-                <div class="CommID">#{{ description }}</div>
-        </div>
-    </div>
+                    <router-link to="/community" class="CommBox" @click="this.$store.commit('setNewViewCommunity', cid)">
+                        <div class="left">
+                                <div class="CommName">{{ title }}</div>
+                            </div>
+                            <div class="right">
+                                        <div class="CommID">#{{ cid }}</div>
+                                </div>
+                    </router-link>
 </template>
 <script>
 export default {
     name: "CommuntiesBox",
-    data() {
-        return {
-            title: "CS F407",
-            description: "4199"
-            }
-        }
-    }
+    props: {
+        title: String,
+        description: String,
+        cid: Number
+    },
+}
 </script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
