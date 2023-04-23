@@ -5,6 +5,7 @@
             <div class="id">#{{ CommID }}</div>
         </div>
     </div>
+    <!-- <AddCommunity/> -->
     <div class="questions">
         <div class="upper">
             <div class="QuestionHeader">Questions :</div>
@@ -20,6 +21,7 @@
     </div>
 </template>
 <script>
+// import AddCommunity from "@/components/AddCommunity.vue";
 import QuestionBox from "../components/QuestionBox.vue";
 export default {
     name: "CommunityView",
@@ -41,7 +43,7 @@ export default {
         /* width: 100vh; */
     }
     .QuestionHeader{
-        font-size: 3.5vh;
+        font-size: 3.2vh;
         margin-top:5vh ;
         border-bottom: 1px solid rgb(176, 176, 31);
         width: fit-content;
@@ -80,6 +82,6 @@ justify-content: center;
     }
     .id{
         margin: 0 5vh 0 0 ;
-        font-family: 'Montserrat', sans-serif;
+            font-family: 'Montserrat', sans-serif;
     }
 </style>

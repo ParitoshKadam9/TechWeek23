@@ -1,30 +1,49 @@
 <template>
     <div class="boxx">
         <div class="form">
-        <div class="QuestionID">
-           Question ID :  #{{ questionID }}
-        </div>
+            <div class="header">Add Community</div>
+            <div class="title"><input class="communityTitle" placeholder="Community Title"/></div>
         <div class="answer">
-            <textarea class="anserInput" placeholder="Type Answer here"></textarea>
+                <textarea class="anserInput" placeholder="Type Answer here"></textarea>
+            </div>      
+                    <div class="Submit">
+                Submit
+            </div>     
         </div>
-        <div class="Submit">
-            Submit
-        </div>
-        </div>
+
     </div>
 </template>
-<script scoped>
+<script>
 export default {
-    name: "AddAnswer",
+    name: "AddCommunity",
     data() {
         return {
-            questionID: '8988'
+            
         }
     }
 }
 </script>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+<style scoped>
+
+.header
+{
+    font-size: 3vh;
+    color: black;
+    margin-bottom: 2vh;
+}
+.communityTitle {
+    border: 1px solid gray;
+    border-radius: 5px;
+    background-color: #303030;
+    color: gray;
+    font-size: 2.5vh;
+    height: 3vh;
+    width: 76vh;
+    padding: 10px;
+    font-size: 2.6vh;
+    /* margin-top: 10vh; */
+    transition: 0.2s;
+}
 
     .boxx{
         width: 100%;
@@ -35,7 +54,7 @@ export default {
     }
     .form{
         width: 90vh;
-        height: 45vh;
+        height: 55vh;
         display: flex;
         border-radius: 5px;
         flex-direction: column;
